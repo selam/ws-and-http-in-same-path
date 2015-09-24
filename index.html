@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+	<script>
+            var ws = new WebSocket("ws://localhost/");
+            ws.onopen = function() {
+	       $("#ws").append("<div>WebSocket Opened</div>");
+           }
+           ws.onmessage = function(e) {
+	       $("#ws").append("<div>"+e.data+"</div>");
+          }
+        </script>
+  </head>
+  <body>
+	<div id="http">Via HTTP static content</div>
+       <div id="ws"></div>
+  </body>
+</html>
